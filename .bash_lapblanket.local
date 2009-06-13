@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# VPN
+alias fixvpn='sudo /sbin/SystemStarter restart CiscoVPN'
+
+# backups
+alias backup='sudo /usr/bin/rsync -vaxE --delete --ignore-errors / /Volumes/Backup/'
+
+# also include TeX in the path
+export PATH=${PATH}:/usr/local/texlive/2007/bin/i386-darwin/
