@@ -1,0 +1,2 @@
+# Make this work more consistently with normal environment.
+/bin/stty erase 

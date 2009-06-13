@@ -1,0 +1,5 @@
+if [ -r ~/.bashrc ]; then
+    if ! source ~/.bashrc; then
+        printf '\e[37;41m %s \e[0m\n' 'had a problem sourcing .bashrc' >&2
+    fi
+fi
