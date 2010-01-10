@@ -1,4 +1,4 @@
-# -*- mode:shell-script mode:folding -*-
+#!/usr/local/bin/zsh
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -70,3 +70,4 @@ then
     source ~/.zshrc.`hostname`
 fi
 # }}}
+
