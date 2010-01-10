@@ -60,5 +60,13 @@ export KEY_RECEIVING_ADDRESS="mfisher@csh.rit.edu"
 export PARINIT="rTbgqR B=.?_A_a Q=_s>|"
 export LC_CTYPE="UTF-8"
 
-# Source non-githubbed info.
-source ~/.zshrc.`hostname`
+# Keep my prompt similar to the one I'm used to:
+# user@machine: directory {history #}, % (# if root) 
+PS1="%n@%m: %~ {%h} %# "
+
+# {{{ Source non-githubbed info.
+if [ -e ~/.zshrc.`hostname` ]
+then
+    source ~/.zshrc.`hostname`
+fi
+# }}}
