@@ -7,4 +7,9 @@ alias fixvpn='sudo /sbin/SystemStarter restart CiscoVPN'
 alias backup='sudo /usr/bin/rsync -vaxE --delete --ignore-errors / /Volumes/Backup/'
 
 # also include TeX in the path
-export PATH=${PATH}:/usr/local/texlive/2007/bin/i386-darwin/
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH:/usr/local/texlive/2007/bin/i386-darwin/:/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin/
+
+export PYTHONPATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/site-packages/
+
+# ssh tunnels
+alias fulltunnel='ssh -D 2080 -fCqN mfisher@edison.homeunix.org'
