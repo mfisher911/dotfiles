@@ -14,6 +14,12 @@ export RSYNC_RSH=ssh
 # http://blog.zerodogg.org/2007/04/21/bash-ssh-host-completion/
 complete -C "perl -le'\$p=qq#^\$ARGV[1]#;@ARGV=q#$HOME/.ssh/config#;/\$p/&&/^\D/&&not(/[*?]/)&&print for map{split/\s+/}grep{s/^\s*Host(?:Name)?\s+//i}<>'" ssh
 
+# add tab-completion for git
+# http://openmelody.org/blog/2010/01/git-tip-auto-completion-for-local-branches-and-remotes
+complete -f -W "$(echo `git branch | sed -e s/[\ \*]//g | cut -f 1 -d ' ' | uniq`; \
+    echo `git remote | sed -e s/[\ \*]//g | cut -f 1 -d ' ' | uniq`; \
+    echo `git | tail -23 | head -21 | cut -d ' ' -f 4`);" git
+
 # properly source .gpg-agent-info for ssh-keychain
 if [ -f "${HOME}/.gpg-agent-info" ]; then
     . "${HOME}/.gpg-agent-info"
