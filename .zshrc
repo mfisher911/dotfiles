@@ -28,6 +28,8 @@ fi
 # }}}
 
 # {{{ fix arrow keys (from http://zsh.sourceforge.net/FAQ/zshfaq03.html#l25)
+bindkey "^[b" vi-backward-word
+bindkey "^[f" vi-forward-word
 bindkey "$(echotc kl)" backward-char
 bindkey "$(echotc kr)" forward-char
 bindkey "$(echotc ku)" up-line-or-history
