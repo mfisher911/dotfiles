@@ -53,7 +53,6 @@ alias smaller="/usr/sbin/vidcontrol 80x43"
 EDITOR=(/usr/local/bin/emacsclient -t)
 export EDITOR # this split syntax appears to be necessary (space parsing)
 export ALTERNATE_EDITOR=""
-export EXINIT='set ai wraplen=74'
 export PAGER=less
 export BLOCKSIZE=1k
 export IRCNICK=Spudnuts
