@@ -16,7 +16,7 @@ compinit
 
 # {{{ work around zsh hang with Emacs/TRAMP
 # http://www.emacswiki.org/emacs/TrampMode
-if [ "$TERM" = "dumb" ]
+if [[ "$TERM" == "dumb" ]]
 then
   unsetopt zle
   unsetopt prompt_cr
