@@ -59,7 +59,7 @@ export IRCNICK=Spudnuts
 export IRCNAME=mfisher
 export KEY_RECEIVING_ADDRESS="mfisher@csh.rit.edu"
 export PARINIT="rTbgqR B=.?_A_a Q=_s>|"
-export LC_CTYPE="UTF-8"
+export LC_CTYPE="en_US.UTF-8"
 
 # Keep my prompt similar to the one I'm used to:
 # user@machine: directory {history #}, % (# if root) 
