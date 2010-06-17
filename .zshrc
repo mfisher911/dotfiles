@@ -10,6 +10,7 @@ bindkey -e
 zstyle :compinstall filename '/home/mfisher/.zshrc'
 
 autoload -Uz compinit
+autoload -U zmv
 compinit
 # End of lines added by compinstall
 # autoload -U promptinit && promptinit
