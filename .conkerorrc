@@ -36,3 +36,14 @@ define_key(content_buffer_normal_keymap, "M-}", "buffer-next");
 require('eye-guide.js');
 define_key(content_buffer_normal_keymap, "space", "eye-guide-scroll-down");
 define_key(content_buffer_normal_keymap, "back_space", "eye-guide-scroll-up");
+
+// http://repo.or.cz/w/conkeror.git/blob_plain/HEAD:/contrib/config/common.js
+// default directory for downloads and shell commands.
+cwd = get_home_directory();
+cwd.append("Downloads");
+
+// http://github.com/doy/conf/blob/master/conkerorrc
+can_kill_last_buffer = false;
+homepage = "about:blank";
+require("page-modes/wikipedia.js");
+wikipedia_enable_didyoumean = true;
