@@ -1,0 +1,32 @@
+add_delicious_webjumps("mfisher");
+define_webjump("gmail", "https://mail.google.com");
+xkcd_add_title = true;
+require("new-tabs.js");
+
+// http://people.virginia.edu/~wh5a/drupal-5.7/?q=node/26
+// Switch to Buffers 1-10 Using Number Keys 1 through 0
+function define_key_buffer_switch(key, buf_num) {
+    // define_key(content_buffer_normal_keymap, key, function (I) {
+    define_key(default_global_keymap, key, function (I) {
+        switch_to_buffer(I.window, I.window.buffers.get_buffer(buf_num));
+    });
+    define_key(download_buffer_keymap, key, function (I) {
+        switch_to_buffer(I.window, I.window.buffers.get_buffer(buf_num));
+    });
+}
+for (let i = 0; i < 10; ++i) {
+    define_key_buffer_switch(i == 9 ? "0" : (i+1).toString(), i);
+}
+
+// http://www.ceondo.com/ecte/2010/09/productivity-conkeror-instapaper-kindle
+// define_key(default_global_keymap, "C-x i", "instapaper");
+
+// http://dmatwork.blogspot.com/2009/09/conkeror-once-moref.html
+// some Firefox keybindings:
+define_key(content_buffer_normal_keymap, "M-{", "buffer-previous");
+define_key(content_buffer_normal_keymap, "M-}", "buffer-next");
+
+// auto-save and auto-load session:
+// require("session.js");
+// session_auto_save_auto_load = true;
+// session_auto_save_auto_load_fn = session_auto_save_load_window_current;
