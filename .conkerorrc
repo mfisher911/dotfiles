@@ -1,22 +1,27 @@
 add_delicious_webjumps("mfisher");
 define_webjump("gmail", "https://mail.google.com");
+define_webjump("reader", "https://reader.google.com");
+define_webjump("urban", "http://www.urbandictionary.com/define.php?term=%s");
+define_webjump("perldoc", "http://perldoc.perl.org/search.html?q=%s");
+define_webjump("cpan", "http://search.cpan.org/search?query=%s&mode=all");
+require("page-modes/wikipedia.js");
+wikipedia_webjumps_format = "wp-en"; // controls the names of the webjumps.  default is "wikipedia-%s".
+define_wikipedia_webjumps("en"); // For English
+define_webjump("weather", "http://www.wunderground.com/cgi-bin/findweather/getForecast?query=%s");
 xkcd_add_title = true;
 require("new-tabs.js");
 require("mode-line.js");
 
-// http://people.virginia.edu/~wh5a/drupal-5.7/?q=node/26
-// Switch to Buffers 1-10 Using Number Keys 1 through 0
-function define_key_buffer_switch(key, buf_num) {
-    // define_key(content_buffer_normal_keymap, key, function (I) {
-    define_key(default_global_keymap, key, function (I) {
-        switch_to_buffer(I.window, I.window.buffers.get_buffer(buf_num));
-    });
-    define_key(download_buffer_keymap, key, function (I) {
-        switch_to_buffer(I.window, I.window.buffers.get_buffer(buf_num));
-    });
+// http://conkeror.org/Tips
+function define_switch_buffer_key (key, buf_num) {
+    define_key(default_global_keymap, key,
+               function (I) {
+                   switch_to_buffer(I.window,
+                                    I.window.buffers.get_buffer(buf_num));
+               });
 }
 for (let i = 0; i < 10; ++i) {
-    define_key_buffer_switch(i == 9 ? "0" : (i+1).toString(), i);
+    define_switch_buffer_key(String((i+1)%10), i);
 }
 
 // http://www.ceondo.com/ecte/2010/09/productivity-conkeror-instapaper-kindle
