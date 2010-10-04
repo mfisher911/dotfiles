@@ -73,3 +73,14 @@ then
 fi
 # }}}
 
+# {{{ semi-common conkeror functionality
+if [ -d ~/conkeror ]
+then
+function reload_conkeror() {
+  echo "Removing the existing application."
+  sudo rm -rf /Applications/conkeror.mozdev.org/conkeror.app
+  echo "Installing the new application."
+  sudo /Library/Frameworks/XUL.framework/xulrunner-bin --install-app $HOME/conkeror
+}
+fi
+# }}}
