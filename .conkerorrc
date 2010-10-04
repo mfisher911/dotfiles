@@ -1,3 +1,4 @@
+// -*- mode:javascript -*-
 add_delicious_webjumps("mfisher");
 define_webjump("gmail", "https://mail.google.com");
 define_webjump("reader", "https://reader.google.com");
@@ -11,6 +12,13 @@ define_webjump("weather", "http://www.wunderground.com/cgi-bin/findweather/getFo
 xkcd_add_title = true;
 require("new-tabs.js");
 require("mode-line.js");
+
+define_webjump("h",
+               function(term) {return term;},
+               $completer = history_completer($use_history = true,
+                                              $use_bookmarks = false,
+                                              $match_required = true),
+               $description = "Visit a conkeror bookmark");
 
 // http://conkeror.org/Tips
 function define_switch_buffer_key (key, buf_num) {
