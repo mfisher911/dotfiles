@@ -1,19 +1,22 @@
 // -*- mode:javascript -*-
-add_delicious_webjumps("mfisher");
-define_webjump("gmail", "https://mail.google.com");
-define_webjump("reader", "https://reader.google.com");
-define_webjump("urban", "http://www.urbandictionary.com/define.php?term=%s");
-define_webjump("perldoc", "http://perldoc.perl.org/search.html?q=%s");
-define_webjump("cpan", "http://search.cpan.org/search?query=%s&mode=all");
+
+require("mode-line.js");
+require("new-tabs.js");
 require("page-modes/twitter.js");
 require("page-modes/wikipedia.js");
+
 wikipedia_webjumps_format = "wp-en"; // controls the names of the webjumps.  default is "wikipedia-%s".
 define_wikipedia_webjumps("en"); // For English
 define_webjump("weather", "http://www.wunderground.com/cgi-bin/findweather/getForecast?query=%s");
 xkcd_add_title = true;
-require("new-tabs.js");
-require("mode-line.js");
+add_delicious_webjumps("mfisher");
 
+define_webjump("cpan", "http://search.cpan.org/search?query=%s&mode=all");
+define_webjump("gmail", "https://mail.google.com");
+define_webjump("perldoc", "http://perldoc.perl.org/search.html?q=%s");
+define_webjump("reader", "https://reader.google.com");
+define_webjump("twitter", "http://twitter.com/%s");
+define_webjump("urban", "http://www.urbandictionary.com/define.php?term=%s");
 define_webjump("h",
                function(term) {return term;},
                $completer = history_completer($use_history = true,
