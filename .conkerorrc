@@ -5,6 +5,7 @@ define_webjump("reader", "https://reader.google.com");
 define_webjump("urban", "http://www.urbandictionary.com/define.php?term=%s");
 define_webjump("perldoc", "http://perldoc.perl.org/search.html?q=%s");
 define_webjump("cpan", "http://search.cpan.org/search?query=%s&mode=all");
+require("page-modes/twitter.js");
 require("page-modes/wikipedia.js");
 wikipedia_webjumps_format = "wp-en"; // controls the names of the webjumps.  default is "wikipedia-%s".
 define_wikipedia_webjumps("en"); // For English
@@ -58,5 +59,4 @@ cwd.append("Downloads");
 // http://github.com/doy/conf/blob/master/conkerorrc
 can_kill_last_buffer = false;
 homepage = "about:blank";
-require("page-modes/wikipedia.js");
 wikipedia_enable_didyoumean = true;
