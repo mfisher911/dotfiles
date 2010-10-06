@@ -5,9 +5,10 @@ require("new-tabs.js");
 require("page-modes/twitter.js");
 require("page-modes/wikipedia.js");
 
-wikipedia_webjumps_format = "wp-en"; // controls the names of the webjumps.  default is "wikipedia-%s".
+wikipedia_webjumps_format = "wp-en";
 define_wikipedia_webjumps("en"); // For English
-define_webjump("weather", "http://www.wunderground.com/cgi-bin/findweather/getForecast?query=%s");
+define_webjump("weather",
+               "http://www.wunderground.com/cgi-bin/findweather/getForecast?query=%s");
 xkcd_add_title = true;
 add_delicious_webjumps("mfisher");
 
