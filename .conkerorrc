@@ -14,6 +14,7 @@ add_delicious_webjumps("mfisher");
 
 define_webjump("cpan", "http://search.cpan.org/search?query=%s&mode=all");
 define_webjump("gmail", "https://mail.google.com");
+define_webjump("imdb", "http://imdb.com/find?q=%s");
 define_webjump("perldoc", "http://perldoc.perl.org/search.html?q=%s");
 define_webjump("reader", "https://reader.google.com");
 define_webjump("twitter", "http://twitter.com/%s");
