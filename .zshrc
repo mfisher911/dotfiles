@@ -84,3 +84,18 @@ function reload_conkeror() {
 }
 fi
 # }}}
+
+# {{{ semi-common Mac SSH Agent -> Emacs functionality
+#
+# pulls the SSH_AGENT_PID and SSH_AUTH_SOCK environment variables,
+# reformats them as setenv arguments, and places them on the clipboard
+# for pasting into emacs and evaluation
+if [ $(/usr/bin/uname -s) = "Darwin" ]
+then
+function copy_ssh_env_emacs() {
+    /usr/bin/printenv | /usr/bin/grep SSH_A | \
+        /usr/bin/awk -F= '{print "(setenv \"" $1 "\" \"" $2 "\")" }' | \
+        /usr/bin/pbcopy
+}
+fi
+# }}}
