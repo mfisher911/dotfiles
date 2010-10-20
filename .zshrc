@@ -82,6 +82,14 @@ function reload_conkeror() {
   echo "Installing the new application."
   sudo /Library/Frameworks/XUL.framework/xulrunner-bin --install-app $HOME/conkeror
 }
+
+# copied from http://paste.lisp.org/+1P2R
+function conkeror-history() {
+  cp ~/Library/Application\ Support/conkeror/Profiles/*.default/places.sqlite /tmp
+  echo "SELECT p.url FROM moz_places AS p, moz_historyvisits AS h WHERE p.url NOT LIKE '%googleads%' AND p.id = h.place_id ORDER BY h.visit_date DESC LIMIT 100;" | sqlite3 /tmp/places.sqlite |less
+  rm /tmp/places.sqlite
+}
+
 fi
 # }}}
 
