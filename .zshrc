@@ -45,7 +45,7 @@ bindkey '\eOC'  forward-char
 bindkey '\eOD'  backward-char
 # }}}
 
-alias apg="/usr/local/bin/apg -m 8 -x 8 -M NCL -t"
+alias apg="`which apg` -m 8 -x 8 -M NCL -t"
 alias h="history 25"
 alias ll="/bin/ls -lA"
 alias sx="/usr/local/bin/screen -x"
