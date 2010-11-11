@@ -48,7 +48,7 @@ bindkey '\eOD'  backward-char
 alias apg="`which apg` -m 8 -x 8 -M NCL -t"
 alias h="history 25"
 alias ll="/bin/ls -lA"
-alias sx="/usr/local/bin/screen -x"
+alias sx="`which screen` -x"
 alias smaller="/usr/sbin/vidcontrol 80x43"
 
 EDITOR=(/usr/local/bin/emacsclient -t)
@@ -104,6 +104,11 @@ function copy_ssh_env_emacs() {
     /usr/bin/printenv | /usr/bin/grep SSH_A | \
         /usr/bin/awk -F= '{print "(setenv \"" $1 "\" \"" $2 "\")" }' | \
         /usr/bin/pbcopy
+}
+
+function copy_ssh_env_screen() {
+    /usr/bin/printenv | /usr/bin/grep SSH_A | \
+        /usr/bin/awk '{print "export " $1}'| /usr/bin/pbcopy
 }
 fi
 # }}}
