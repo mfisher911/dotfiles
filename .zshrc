@@ -101,9 +101,9 @@ fi
 if [ $(/usr/bin/uname -s) = "Darwin" ]
 then
 function copy_ssh_env_emacs() {
-    /usr/bin/printenv | /usr/bin/grep SSH_A | \
-        /usr/bin/awk -F= '{print "(setenv \"" $1 "\" \"" $2 "\")" }' | \
-        /usr/bin/pbcopy
+    param=$(/usr/bin/printenv | /usr/bin/grep SSH_A | \
+            /usr/bin/awk -F= '{print "(setenv \"" $1 "\" \"" $2 "\")" }')
+    /Applications/MacPorts/Emacs.app/Contents/MacOS/bin/emacsclient -e ${param}
 }
 
 function copy_ssh_env_screen() {
