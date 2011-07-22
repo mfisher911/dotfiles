@@ -103,7 +103,7 @@ then
 function copy_ssh_env_emacs() {
     param=$(/usr/bin/printenv | /usr/bin/grep SSH_A | \
             /usr/bin/awk -F= '{print "(setenv \"" $1 "\" \"" $2 "\")" }')
-    /Applications/MacPorts/Emacs.app/Contents/MacOS/bin/emacsclient -e ${param}
+    /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -e ${param}
 }
 
 function copy_ssh_env_screen() {
