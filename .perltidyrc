@@ -1,0 +1,17 @@
+# Perl Best Practices settings + errata, stolen from 
+# http://notes.timeghost.net/2010/03/perltidy-and-pbp.html
+-l=78        # max line length
+-i=4         # indent level (4 cols)
+-ci=4        # continued indent
+-st
+-se
+-vt=2        # line break after opening token
+-cti=0       # no extra indentation for closing brackets
+-pt=1        # medium parenthesis tightness
+-bt=1        # medium brace tightness
+-sbt=1       # medium square brace tightness
+-bbt=1       # medium block brace tightness
+-nsfs        # no space before semicolons
+-nolq        # don't outdent long-quoted strings
+# break before these operators
+-wbb="% + - * / x != == >= <= =~ < > | & **= += *= &= <<= &&= -="
