@@ -10,6 +10,7 @@ bindkey -e
 zstyle :compinstall filename '/home/mfisher/.zshrc'
 
 autoload -Uz compinit
+autoload -U zmv
 compinit
 # End of lines added by compinstall
 # autoload -U promptinit && promptinit
@@ -47,7 +48,7 @@ bindkey '\eOD'  backward-char
 alias apg="/usr/local/bin/apg -m 8 -x 8 -M NCL -t"
 alias h="history 25"
 alias ll="/bin/ls -lA"
-alias sx="/usr/local/bin/screen -x"
+alias sx="`which screen` -x"
 alias smaller="/usr/sbin/vidcontrol 80x43"
 
 EDITOR=(/usr/local/bin/emacsclient -t)
@@ -73,3 +74,42 @@ then
 fi
 # }}}
 
+# {{{ semi-common conkeror functionality
+if [ -d ~/conkeror ]
+then
+function reload_conkeror() {
+  echo "Removing the existing application."
+  sudo rm -rf /Applications/conkeror.mozdev.org/conkeror.app
+  echo "Installing the new application."
+  sudo /Library/Frameworks/XUL.framework/xulrunner-bin --install-app $HOME/conkeror
+}
+
+# copied from http://paste.lisp.org/+1P2R
+function conkeror-history() {
+  cp ~/Library/Application\ Support/conkeror/Profiles/*.default/places.sqlite /tmp
+  echo "SELECT p.url FROM moz_places AS p, moz_historyvisits AS h WHERE p.url NOT LIKE '%googleads%' AND p.id = h.place_id ORDER BY h.visit_date DESC LIMIT 100;" | sqlite3 /tmp/places.sqlite |less
+  rm /tmp/places.sqlite
+}
+
+fi
+# }}}
+
+# {{{ semi-common Mac SSH Agent -> Emacs functionality
+#
+# pulls the SSH_AGENT_PID and SSH_AUTH_SOCK environment variables,
+# reformats them as setenv arguments, and places them on the clipboard
+# for pasting into emacs and evaluation
+if [ $(/usr/bin/uname -s) = "Darwin" ]
+then
+function copy_ssh_env_emacs() {
+    param=$(/usr/bin/printenv | /usr/bin/grep SSH_A | \
+            /usr/bin/awk -F= '{print "(setenv \"" $1 "\" \"" $2 "\")" }')
+    /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -e ${param}
+}
+
+function copy_ssh_env_screen() {
+    /usr/bin/printenv | /usr/bin/grep SSH_A | \
+        /usr/bin/awk '{print "export " $1}'| /usr/bin/pbcopy
+}
+fi
+# }}}

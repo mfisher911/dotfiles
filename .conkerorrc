@@ -1,0 +1,64 @@
+// -*- mode:javascript -*-
+
+require('eye-guide.js');
+require("mode-line.js");
+require("new-tabs.js");
+require("session.js");
+require("page-modes/twitter.js");
+require("page-modes/wikipedia.js");
+
+wikipedia_webjumps_format = "wp-en";
+xkcd_add_title = true;
+add_delicious_webjumps("mfisher");
+
+define_webjump("cpan", "http://search.cpan.org/search?query=%s&mode=all");
+define_webjump("gmail", "https://mail.google.com");
+define_webjump("h",
+               function(term) {return term;},
+               $completer = history_completer($use_history = true,
+                                              $use_bookmarks = false,
+                                              $match_required = true),
+               $description = "Visit a conkeror bookmark");
+define_webjump("imdb", "http://imdb.com/find?q=%s");
+define_webjump("ljf", "http://mfisher.livejournal.com/friends");
+define_webjump("perldoc", "http://perldoc.perl.org/search.html?q=%s");
+define_webjump("reader", "https://reader.google.com");
+define_webjump("twitter", "http://twitter.com/%s");
+define_webjump("urban", "http://www.urbandictionary.com/define.php?term=%s");
+define_webjump("weather",
+               "http://www.wunderground.com/cgi-bin/findweather/getForecast?query=%s");
+
+// http://conkeror.org/Tips
+function define_switch_buffer_key (key, buf_num) {
+    define_key(default_global_keymap, key,
+               function (I) {
+                   switch_to_buffer(I.window,
+                                    I.window.buffers.get_buffer(buf_num));
+               });
+}
+for (let i = 0; i < 10; ++i) {
+    define_switch_buffer_key("M-" + String((i+1)%10), i);
+}
+
+// http://dmatwork.blogspot.com/2009/09/conkeror-once-moref.html
+// some Firefox keybindings:
+define_key(content_buffer_normal_keymap, "M-{", "buffer-previous");
+define_key(content_buffer_normal_keymap, "M-}", "buffer-next");
+
+// auto-save and auto-load session:
+session_auto_save_auto_load = true;
+session_auto_save_auto_load_fn = "session_auto_save_load_window_new";
+
+// http://www.mail-archive.com/conkeror@mozdev.org/msg01213.html
+define_key(content_buffer_normal_keymap, "space", "eye-guide-scroll-down");
+define_key(content_buffer_normal_keymap, "back_space", "eye-guide-scroll-up");
+
+// http://repo.or.cz/w/conkeror.git/blob_plain/HEAD:/contrib/config/common.js
+// default directory for downloads and shell commands.
+cwd = get_home_directory();
+cwd.append("Downloads");
+
+// http://github.com/doy/conf/blob/master/conkerorrc
+can_kill_last_buffer = false;
+homepage = "about:blank";
+wikipedia_enable_didyoumean = true;
