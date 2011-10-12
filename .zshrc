@@ -55,6 +55,7 @@ EDITOR=(/usr/local/bin/emacsclient -t)
 export EDITOR # this split syntax appears to be necessary (space parsing)
 export ALTERNATE_EDITOR=""
 export PAGER=less
+export LESS=X
 export BLOCKSIZE=1k
 export IRCNICK=Spudnuts
 export IRCNAME=mfisher
