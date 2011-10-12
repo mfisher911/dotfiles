@@ -61,6 +61,7 @@ export IRCNAME=mfisher
 export KEY_RECEIVING_ADDRESS="mfisher@csh.rit.edu"
 export PARINIT="rTbgqR B=.?_A_a Q=_s>|"
 export LC_CTYPE="en_US.UTF-8"
+export PATH=~/bin:${PATH}
 
 # Keep my prompt similar to the one I'm used to:
 # user@machine: directory {history #}, % (# if root) 
@@ -103,7 +104,7 @@ then
 function copy_ssh_env_emacs() {
     param=$(/usr/bin/printenv | /usr/bin/grep SSH_A | \
             /usr/bin/awk -F= '{print "(setenv \"" $1 "\" \"" $2 "\")" }')
-    /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -e ${param}
+    ~/bin/emacsclient -e ${param}
 }
 
 function copy_ssh_env_screen() {
