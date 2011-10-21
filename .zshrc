@@ -15,6 +15,16 @@ compinit
 # End of lines added by compinstall
 # autoload -U promptinit && promptinit
 
+# probe for ZSH functions: http://www.zsh.org/mla/users/2009/msg00984.html
+function_exists () {
+    local -a files
+    # This expands occurrences of $1 anywhere in $fpath,
+    # removing files that don't exist.
+    files=(${^fpath}/$1(N))
+    # Success if any files exist.
+    (( ${#files} ))
+}
+
 # {{{ work around zsh hang with Emacs/TRAMP
 # http://www.emacswiki.org/emacs/TrampMode
 if [[ "$TERM" == "dumb" ]]
@@ -22,8 +32,12 @@ then
     unsetopt zle
     unsetopt prompt_cr
     unsetopt prompt_subst
-    unfunction precmd
-    unfunction preexec
+    if function_exists precmd; then
+        unfunction precmd
+    fi
+    if function_exists preexec; then
+        unfunction preexec
+    fi
     PS1='$ '
 else
     # fix arrow keys (from http://zsh.sourceforge.net/FAQ/zshfaq03.html#l25)
