@@ -66,6 +66,14 @@ else
 fi
 # }}}
 
+function precmd() {
+    case $TERM in
+        screen*|xterm*)
+            precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+            ;;
+    esac
+}
+
 alias apg="/usr/local/bin/apg -m 8 -x 8 -M NCL -t"
 alias h="history 25"
 alias ll="/bin/ls -lA"
