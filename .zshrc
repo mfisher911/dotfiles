@@ -69,7 +69,7 @@ fi
 function precmd() {
     case $TERM in
         screen*|xterm*)
-            precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+            precmd () {print -Pn "\e]0;%m: %~\a"}
             ;;
     esac
 }
