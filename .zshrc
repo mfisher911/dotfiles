@@ -131,6 +131,13 @@ then
 fi
 # }}}
 
+# call as new-ssl hostname   -- don't use FQDN
+function new-ssl() {
+    sudo openssl req -out $*.csr -new -newkey rsa:2048 -nodes -keyout $*.key \
+        -subj "/C=US/ST=New-York/L=Rochester/O=University of Rochester/OU=School of Nursing/CN=$*.son.rochester.edu"
+    sudo chmod 600 $*.key
+}
+
 # http://chneukirchen.org/blog/archive/2011/02/10-more-zsh-tricks-you-may-not-know.html
 # Complete in history with M-/, M-,
 zstyle ':completion:history-words:*' list no 
