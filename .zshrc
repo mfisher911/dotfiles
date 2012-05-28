@@ -93,6 +93,10 @@ export PARINIT="rTbgqR B=.?_A_a Q=_s>|"
 export LC_CTYPE="en_US.UTF-8"
 export PATH=~/bin:${PATH}
 
+# load zsh completions if they're present
+[ -d ~/.zsh_packages/zsh-completions ] && \
+    fpath=(~/.zsh_packages/zsh-completions $fpath)
+
 # {{{ Source non-githubbed info.
 if [ -e ~/.zshrc.`hostname` ]
 then
