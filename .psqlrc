@@ -1,0 +1,2 @@
+\set AUTOCOMMIT off
+\echo 'AUTOCOMMIT is' :AUTOCOMMIT
