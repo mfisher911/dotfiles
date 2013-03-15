@@ -135,6 +135,16 @@ then
 fi
 # }}}
 
+if [ $(/usr/bin/uname -s) = "FreeBSD" ]
+then
+    # run portmaster to search for needed updates
+    function pmold() {
+          portmaster -L | \
+          egrep -B1 '(ew|ort) version|Aborting|installed|dependencies|IGNORE|marked|Reason:|MOVED|deleted|exist|update' | \
+          grep -v '^--'
+    }
+fi
+
 # call as new-ssl hostname   -- don't use FQDN
 function new-ssl() {
     sudo openssl req -out $*.csr -new -newkey rsa:2048 -nodes -keyout $*.key \
