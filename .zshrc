@@ -116,6 +116,10 @@ then
             /usr/bin/awk '{print "export " $1}'| /usr/bin/pbcopy
     }
 
+    function upgrade_emacs() {
+        brew rm emacs && brew install --HEAD emacs --cocoa --srgb
+    }
+
     if [ -d ~/conkeror ]
     then
         function reload_conkeror() {
