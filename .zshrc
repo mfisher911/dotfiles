@@ -117,6 +117,7 @@ then
     }
 
     function upgrade_emacs() {
+        brew fetch --HEAD emacs && \
         brew rm emacs && brew install --HEAD emacs --cocoa --srgb
     }
 
