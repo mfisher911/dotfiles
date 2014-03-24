@@ -14,9 +14,7 @@ bindkey -e
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/mfisher/.zshrc'
 
-autoload -Uz compinit
 autoload -U zmv
-compinit
 # End of lines added by compinstall
 # autoload -U promptinit && promptinit
 
@@ -93,10 +91,6 @@ export PARINIT="rTbgqR B=.?_A_a Q=_s>|"
 export LC_CTYPE="en_US.UTF-8"
 export PATH=~/bin:${PATH}
 
-# load zsh completions if they're present
-[ -d ~/.zsh_packages/zsh-completions ] && \
-    fpath=(~/.zsh_packages/zsh-completions $fpath)
-
 # {{{ Source non-githubbed info.
 if [ -e ~/.zshrc.`hostname` ]
 then
@@ -108,6 +102,10 @@ fi
 #
 if [ $(/usr/bin/uname -s) = "Darwin" ]
 then
+    # load zsh completions if they're present
+    [ -d /usr/local/share/zsh-completions ] && \
+        fpath=(/usr/local/share/zsh-completions $fpath)
+
     # pulls the SSH_AGENT_PID and SSH_AUTH_SOCK environment variables,
     # reformats them as setenv arguments, and places them on the clipboard
     # for pasting
@@ -148,6 +146,10 @@ then
           egrep -B1 '(ew|ort) version|Aborting|installed|dependencies|IGNORE|marked|Reason:|MOVED|deleted|exist|update' | \
           grep -v '^--'
     }
+
+    # load zsh completions if they're present
+    [ -d ~/.zsh_packages/zsh-completions ] && \
+         fpath=(~/.zsh_packages/zsh-completions $fpath)
 fi
 
 # call as new-ssl hostname   -- don't use FQDN
@@ -164,3 +166,8 @@ zstyle ':completion:history-words:*' menu yes
 zstyle ':completion:history-words:*' remove-all-dups yes
 bindkey "\e/" _history-complete-older
 bindkey "\e," _history-complete-newer
+
+## move to the end so that they run after the zsh-completions package
+## is loaded
+autoload -Uz compinit
+compinit
