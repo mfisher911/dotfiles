@@ -116,7 +116,10 @@ then
 
     function upgrade_emacs() {
         brew fetch --HEAD emacs && \
-        brew rm emacs && brew install --HEAD emacs --cocoa --srgb
+        brew rm emacs && \
+        brew install --HEAD --build-bottle emacs --cocoa --srgb && \
+        loc=$(brew bottle --HEAD emacs | grep './') && \
+        mv $loc /Library/Caches/Homebrew
     }
 
     if [ -d ~/conkeror ]
