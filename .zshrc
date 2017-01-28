@@ -103,6 +103,8 @@ fi
 #
 if [ $(/usr/bin/uname -s) = "Darwin" ]
 then
+    alias flushdns="sudo killall -HUP mDNSResponder"
+
     # load zsh completions if they're present
     [ -d /usr/local/share/zsh-completions ] && \
         fpath=(/usr/local/share/zsh-completions $fpath)
