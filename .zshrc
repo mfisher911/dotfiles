@@ -79,8 +79,9 @@ alias sx="$(which screen) -x"
 alias smaller="/usr/sbin/vidcontrol 80x43"
 alias urmcpw="apg -M SNCL -E '[]{}#%^*+=_\|~<>.,?!' -m 8 -x 12"
 
-EDITOR=(/usr/local/bin/emacsclient -t)
+EDITOR=(/usr/local/bin/emacsclient -c)
 export EDITOR # this split syntax appears to be necessary (space parsing)
+export VISUAL=/usr/local/bin/emacsclient
 export ALTERNATE_EDITOR=""
 export PAGER=less
 export LESS=FiRX
