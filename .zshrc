@@ -72,12 +72,11 @@ function precmd() {
     esac
 }
 
-alias apg="/usr/local/bin/apg -m 8 -x 8 -M NCL -t"
 alias h="history 25"
 alias ll="/bin/ls -lA"
 alias sx="$(which screen) -x"
 alias smaller="/usr/sbin/vidcontrol 80x43"
-alias urmcpw="apg -M SNCL -E '[]{}#%^*+=_\|~<>.,?!' -m 8 -x 12"
+alias urmcpw="apg -M SNCL -E '[]{}#%^*+=_\|~<>' -m 8 -x 12"
 
 EDITOR=(/usr/local/bin/emacsclient -c)
 export EDITOR # this split syntax appears to be necessary (space parsing)
