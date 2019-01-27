@@ -119,9 +119,10 @@ then
     }
 
     function upgrade_emacs() {
-        brew fetch --HEAD emacs && \
-        brew rm emacs; \
-        brew install --HEAD emacs --with-cocoa
+        # note: have to do brew tap d12frosted/emacs-plus first
+        brew fetch --HEAD emacs-plus && \
+        brew uninstall emacs-plus; \
+        brew install emacs-plus --HEAD
     }
 
     function mssh () {
