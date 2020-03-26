@@ -1,0 +1,18 @@
+# copied from https://github.com/direnv/direnv/wiki/Git
+## activate with:
+# git config --global core.excludesfile "~/.gitignore_global"
+################
+# Direnv stuff
+.direnv
+.envrc
+# OS generated files #
+######################
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+# Editor files #
+################
+*~
+*.swp
+*.swo
