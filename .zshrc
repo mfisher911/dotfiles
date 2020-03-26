@@ -173,6 +173,8 @@ function new-ssl() {
     sudo chmod 600 $*.key
 }
 
+alias trace_response="curl --insecure --location --verbose --silent -D - -o /dev/null"
+
 # http://chneukirchen.org/blog/archive/2011/02/10-more-zsh-tricks-you-may-not-know.html
 # Complete in history with M-/, M-,
 zstyle ':completion:history-words:*' list no 
