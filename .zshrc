@@ -90,7 +90,6 @@ export IRCNAME=mfisher
 export KEY_RECEIVING_ADDRESS="mfisher@csh.rit.edu"
 export PARINIT="rTbgqR B=.?_A_a Q=_s>|"
 export LC_CTYPE="en_US.UTF-8"
-export PATH=~/bin:${PATH}
 
 # {{{ Source non-githubbed info.
 if [ -e ~/.zshrc.`hostname` ]
