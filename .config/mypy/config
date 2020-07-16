@@ -1,0 +1,6 @@
+# Apparently there aren't stub files for Django 3 or most other stuff
+# I use, so take the nuclear option (#3) with that:
+#
+# https://mypy.readthedocs.io/en/latest/running_mypy.html#missing-imports
+[mypy]
+ignore_missing_imports = True
