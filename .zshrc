@@ -154,6 +154,10 @@ then
 fi
 # }}}
 
+function pipupgrade() {
+    pip3 install -U $(pip3 list --outdated| awk 'NR>2 {print $1}')
+}
+
 if [ $(/usr/bin/uname -s) = "FreeBSD" ]
 then
     # run portmaster to search for needed updates
