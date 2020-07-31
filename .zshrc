@@ -92,10 +92,13 @@ export PARINIT="rTbgqR B=.?_A_a Q=_s>|"
 export LC_CTYPE="en_US.UTF-8"
 
 # {{{ Source non-githubbed info.
-if [ -e ~/.zshrc.`hostname` ]
-then
-    source ~/.zshrc.`hostname`
-fi
+function {
+    local hostname=${$(hostname -s)/vpn-client-*/sonm17mfisher4}
+    if [ -e ~/.zshrc.$hostname ]
+    then
+        source ~/.zshrc.$hostname
+    fi
+}
 # }}}
 
 # {{{ semi-common Mac desktop needs
