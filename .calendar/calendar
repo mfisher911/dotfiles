@@ -1,0 +1,8 @@
+LANG=C
+Easter=Easter
+
+#include <calendar.birthday>
+#include <calendar.computer>
+#include <calendar.freebsd>
+#include <calendar.usholiday>
+#include <calendar.world>
