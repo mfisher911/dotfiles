@@ -1,2 +1,6 @@
 \set AUTOCOMMIT off
 \echo 'AUTOCOMMIT is' :AUTOCOMMIT
+\set COMP_KEYWORD_CASE upper
+\pset null ∅
+\timing
+\x auto
