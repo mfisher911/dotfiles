@@ -8,3 +8,7 @@ force_grid_wrap = 0
 use_parenthesis = true
 ensure_newline_before_comments = true
 line_length = 78
+
+[tool.pylint.messages_control]
+# https://black.readthedocs.io/en/stable/compatible_configs.html#pylint
+disable = "C0330, C0326"
