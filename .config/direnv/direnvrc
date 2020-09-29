@@ -29,3 +29,17 @@ layout_python-venv() {
     PATH="${VIRTUAL_ENV}/bin:${PATH}"
     export PATH
 }
+
+# Use this as:
+#   layout virtualenv /path/to/my-awesome-project
+# or
+#   layout virtualenvwrapper my-awesome-project
+layout_virtualenv() {
+  local venv_path="$1"
+  source ${venv_path}/bin/activate
+}
+
+layout_virtualenvwrapper() {
+  local venv_path="${WORKON_HOME}/$1"
+  layout_virtualenv $venv_path
+}
