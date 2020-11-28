@@ -112,11 +112,11 @@ then
             /usr/bin/awk '{print "export " $1}'| /usr/bin/pbcopy
     }
 
-    function upgrade_emacs() {
+    function upgrade_emacs () {
         # note: have to do brew tap d12frosted/emacs-plus first
-        brew fetch --HEAD emacs-plus && \
-        brew uninstall emacs-plus; \
-        brew install emacs-plus --HEAD
+	brew fetch --HEAD emacs-plus@28 && brew uninstall emacs-plus@28
+	brew install emacs-plus@28 --with-ctags \
+            --with-modern-black-variant-icon
     }
 
     function mssh () {
