@@ -151,9 +151,9 @@ fi
 
 # call as new-ssl hostname   -- don't use FQDN
 function new-ssl() {
-    sudo openssl req -out $*.csr -new -newkey rsa:2048 -nodes -keyout $*.key \
+    sudo openssl req -out $*.csr -new -newkey rsa:4096 -nodes -keyout $*.key \
         -subj "/C=US/ST=New-York/L=Rochester/O=University of Rochester/OU=School of Nursing/CN=$*.son.rochester.edu"
-    sudo chmod 600 $*.key
+    sudo chmod 640 $*.key
 }
 
 alias trace_response="curl --insecure --location --verbose --silent -D - -o /dev/null"
