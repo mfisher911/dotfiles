@@ -76,7 +76,7 @@ alias h="history 25"
 alias ll="/bin/ls -lA"
 alias sx="$(which screen) -x"
 alias smaller="/usr/sbin/vidcontrol 80x43"
-alias urmcpw="apg -M SNCL -E '[]{}#%^*+=_\|~<>' -m 8 -x 12"
+alias urmcpw="apg -M SNCL -E '[]{}#%^*+=_\|~<>' -m 10 -x 12 -t"
 
 export PAGER=less
 export LESS=FiRX
