@@ -25,6 +25,6 @@ if [ -x /usr/games/fortune ] ; then /usr/games/fortune -o ; fi
 
 case $- in *i*)
     # interactive, so switch to zsh
-    [ -x $(which zsh) ] && exec zsh -l
+    which zsh > /dev/null 2>&1 && tty > /dev/null 2>&1 && exec zsh -l
     ;;
 esac
