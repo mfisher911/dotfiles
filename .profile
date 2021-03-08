@@ -21,6 +21,12 @@ PAGER=more;  	export PAGER
 # set ENV to a file invoked each time sh is started for interactive use.
 ENV=$HOME/.shrc; export ENV
 
+# Keep things simple for Emacs/tramp
+case "$TERM" in
+"dumb")
+    PS1="$ "; return;
+esac
+
 if [ -x /usr/games/fortune ] ; then /usr/games/fortune -o ; fi
 
 case $- in *i*)
