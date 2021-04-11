@@ -1,4 +1,7 @@
+if [[ "$(uname -a)" = "Darwin" && "$(uname -m)" = "arm64" ]]; then
+    PATH="/opt/homebrew/bin:$PATH:$HOME/bin"
+else
+    PATH="$PATH:$HOME/bin"
+fi
 typeset -U PATH path
-path=("$HOME/bin" "$HOME/.cask/bin" "$HOME/.local/bin"
-      "/usr/local/opt/postgresql@9.5/bin" "/usr/local/sbin" "$path[@]")
 export PATH
