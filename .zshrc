@@ -123,10 +123,10 @@ then
     function mssh () {
         mkdir /Volumes/$1 > /dev/null 2>&1
         if [ $? != 0 ]; then
-            sudo -p '[sudo] ' chgrp admin /Volumes && sudo chmod g+w /Volumes
+            sudo -p '[sudo] ' chgrp staff /Volumes && sudo chmod g+w /Volumes
             mkdir /Volumes/$1
         fi
-        sshfs -o defer_permissions $1:/ /Volumes/$1
+        sshfs -o defer_permissions $1:/ /Volumes/$1 -o volname=$1
     }
 fi
 # }}}
