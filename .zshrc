@@ -115,10 +115,9 @@ then
 
     function upgrade_emacs() {
         # note: have to do brew tap d12frosted/emacs-plus first
-        brew fetch --HEAD emacs-plus@28 && \
-        brew uninstall emacs-plus@28 && \
-        brew install emacs-plus@28 --with-ctags --with-modern-black-variant-icon
-        # not for @28:  --HEAD
+        brew fetch --HEAD emacs-plus@29 && \
+        brew uninstall emacs-plus@29 && \
+        brew install emacs-plus@29 --with-ctags --with-retro-gnu-meditate-levitate-icon
     }
 
     function mssh () {
