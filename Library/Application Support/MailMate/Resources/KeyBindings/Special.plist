@@ -1,0 +1,14 @@
+// ~/Library/Application Support/MailMate/Resources/KeyBindings/
+{
+ "0" = ("makeFirstResponder:", "mainOutline"); // move focus to message list
+ "9" = ("makeFirstResponder:", "messageView"); // move focus to message view (for scrolling with arrows)
+ "g" = "selectFirstMessageRow:";
+ "G" = "selectLastMessageRow:";
+ "h" = "collapseThread:";
+ "i" = "downloadAllResources:";
+ "l" = "expandThread:";
+ "n" = ("makeFirstResponder:", "mainOutline", "nextUnreadMessage:"); // move focus to message list, select next unread message
+  "x" = ( "toggleFilterKey:", "unread", "makeFirstResponder:", "mainOutline", "selectFirstMessageRow:");
+  "1" = ( "toggleFilterKey:", "unread" );
+  "@1" = ( "goToMailbox:", "INBOX" );
+}
