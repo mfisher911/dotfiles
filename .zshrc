@@ -1,15 +1,20 @@
 #!/usr/local/bin/zsh
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1500
-SAVEHIST=1000
+HISTSIZE=50000
+SAVEHIST=50000
 setopt HIST_EXPIRE_DUPS_FIRST   # prune duplicate lines from history first
 setopt HIST_IGNORE_DUPS         # and don't save new dupes
+setopt HIST_IGNORE_ALL_DUPS	# Delete old entry if new entry is a duplicate
+setopt HIST_FIND_NO_DUPS	# Do not display a line previously found
+setopt HIST_SAVE_NO_DUPS	# don't store dupes into the history file
 setopt HIST_IGNORE_SPACE        # don't store things prefixed with a space
 setopt HIST_NO_STORE            # don't store history/fc commands
 setopt HIST_REDUCE_BLANKS       # remove extraneous whitespace
 setopt INC_APPEND_HISTORY       # don't wait until the shell quits to save
 setopt SHARE_HISTORY            # share history between sessions
+setopt EXTENDED_HISTORY		# record timestamps
+# unsetopt HIST_VERIFY		# don't verify history expansion (!$)
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
