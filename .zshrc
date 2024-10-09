@@ -120,10 +120,12 @@ then
     }
 
     function upgrade_emacs() {
+        old_emacsver=emacs-plus@31
+        new_emacsver=emacs-plus@31
         # note: have to do brew tap d12frosted/emacs-plus first
-        brew fetch --HEAD emacs-plus@29 && \
-        brew uninstall emacs-plus@29 && \
-        brew install emacs-plus@29 --with-ctags --with-retro-gnu-meditate-levitate-icon
+        brew fetch --HEAD $new_emacsver && \
+        brew uninstall --ignore-dependencies $old_emacsver ; \
+        brew install $new_emacsver --with-ctags --with-retro-gnu-meditate-levitate-icon
     }
 
     function mssh () {
