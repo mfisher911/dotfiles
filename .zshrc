@@ -96,6 +96,7 @@ function {
     if [ -e ~/.zshrc.$hostname ]
     then
         source ~/.zshrc.$hostname
+        zstyle :compinstall filename "~/.zshrc.$hostname"
     fi
 }
 # }}}
