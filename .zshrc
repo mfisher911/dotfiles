@@ -178,3 +178,5 @@ bindkey "\e," _history-complete-newer
 ## is loaded
 autoload -Uz compinit
 compinit
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
