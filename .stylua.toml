@@ -1,0 +1,6 @@
+# https://github.com/JohnnyMorganz/StyLua
+# % brew install stylua
+# stylua [file]
+column_width = 80
+indent_type = "Spaces"
+collapse_simple_statement = "Always"
