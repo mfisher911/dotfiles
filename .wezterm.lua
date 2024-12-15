@@ -32,6 +32,9 @@ config.keys = {
     { key = "=", mods = "CTRL", action = act.DisableDefaultAssignment },
     { key = "+", mods = "SHIFT|CTRL", action = act.DisableDefaultAssignment },
     { key = "=", mods = "SHIFT|CTRL", action = act.DisableDefaultAssignment },
+    -- disable full-screen toggle
+    -- wezterm show-keys --lua | grep FullScreen
+    { key = 'Enter', mods = 'ALT', action = act.DisableDefaultAssignment },
 }
 
 -- and finally, return the configuration to wezterm
