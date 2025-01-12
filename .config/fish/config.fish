@@ -27,4 +27,7 @@ if status is-interactive
         bind '$' bind_dollar
     end
 
+    set -gx VISUAL /opt/homebrew/bin/emacsclient -quw 15
+    set -gx EDITOR /opt/homebrew/bin/emacsclient -quw 15
+
 end
