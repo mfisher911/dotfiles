@@ -18,7 +18,7 @@ layout_python-venv() {
             log_error "Could not detect Python version"
             return 1
         fi
-        VIRTUAL_ENV=$PWD/.direnv/python-venv-$python_version
+        VIRTUAL_ENV=$PWD/.venv
     fi
     export VIRTUAL_ENV
     if [[ ! -d $VIRTUAL_ENV ]]; then
