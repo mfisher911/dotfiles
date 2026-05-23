@@ -4,7 +4,7 @@ function upgrade_emacs
     if brew fetch --HEAD $new_emacsver
         brew uninstall --ignore-dependencies $old_emacsver
 
-        brew install $new_emacsver --with-retro-gnu-meditate-levitate-icon
+        brew install $new_emacsver
     else
         echo "Could not fetch $new_emacsver"
     end
